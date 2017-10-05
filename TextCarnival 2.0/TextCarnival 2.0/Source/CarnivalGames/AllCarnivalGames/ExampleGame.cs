@@ -17,8 +17,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
         {
             return "The Example Game";
         }
-        
-        public override void play()
+.        public override void play()
         {
             //Shows the green title text
             showTitle("WELCOME TO THE EXAMPLE GAME!");
