@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Source\CarnivalGames\AllCarnivalGames\ExampleGame.cs" />
-    <Compile Include="Source\CarnivalGames\AllCarnivalGames\QuestionMania.cs" />
+    <Compile Include="Source\CarnivalGames\AllCarnivalGames\Jeopardy.cs" />
     <Compile Include="Source\CarnivalGames\CarnivalGame.cs" />
     <Compile Include="Source\Client\Client.cs" />
     <Compile Include="Source\Program.cs" />
