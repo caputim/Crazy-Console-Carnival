@@ -14,3 +14,6 @@ C:\Users\1capu\OneDrive\Documents\GitHub\Crazy-Console-Carnival\TextCarnival 2.0
 C:\Users\1capu\OneDrive\Documents\GitHub\Crazy-Console-Carnival\TextCarnival 2.0\TextCarnival 2.0\obj\Debug\TextCarnival.csproj.CoreCompileInputs.cache
 C:\Users\1capu\OneDrive\Documents\GitHub\Crazy-Console-Carnival\TextCarnival 2.0\TextCarnival 2.0\obj\Debug\TextCarnival 2.0.exe
 C:\Users\1capu\OneDrive\Documents\GitHub\Crazy-Console-Carnival\TextCarnival 2.0\TextCarnival 2.0\obj\Debug\TextCarnival 2.0.pdb
+C:\Users\1capu\OneDrive\Documents\GitHub\Crazy-Console-Carnival\TextCarnival 2.0\TextCarnival 2.0\bin\Debug\TextCarnival 2.0.exe.config
+C:\Users\1capu\OneDrive\Documents\GitHub\Crazy-Console-Carnival\TextCarnival 2.0\TextCarnival 2.0\bin\Debug\TextCarnival 2.0.exe
+C:\Users\1capu\OneDrive\Documents\GitHub\Crazy-Console-Carnival\TextCarnival 2.0\TextCarnival 2.0\bin\Debug\TextCarnival 2.0.pdb

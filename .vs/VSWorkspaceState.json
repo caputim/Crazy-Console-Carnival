@@ -1,17 +1,7 @@
 {
   "ExpandedNodes": [
     "",
-    "\\TextCarnival 2.0",
-    "\\TextCarnival 2.0\\TextCarnival 2.0",
-    "\\TextCarnival 2.0\\TextCarnival 2.0\\bin",
-    "\\TextCarnival 2.0\\TextCarnival 2.0\\bin\\Debug",
-    "\\TextCarnival 2.0\\TextCarnival 2.0\\obj\\Debug",
-    "\\TextCarnival 2.0\\TextCarnival 2.0\\Source",
-    "\\TextCarnival 2.0\\TextCarnival 2.0\\Source\\CarnivalGames",
-    "\\TextCarnival 2.0\\TextCarnival 2.0\\Source\\CarnivalGames\\AllCarnivalGames",
-    "\\TextCarnival 2.0\\TextCarnival 2.0\\Source\\Client",
-    "\\TextCarnival 2.0\\TextCarnival 2.0\\Source\\Server"
+    "\\TextCarnival 2.0\\TextCarnival 2.0\\obj\\Debug\\TempPE"
   ],
-  "SelectedNode": "\\TextCarnival 2.0\\TextCarnival 2.0\\Source\\CarnivalGames\\AllCarnivalGames\\QuestionMania.cs",
   "PreviewInSolutionExplorer": false
 }
