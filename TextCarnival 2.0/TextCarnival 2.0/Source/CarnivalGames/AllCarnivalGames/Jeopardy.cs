@@ -16,6 +16,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 
         public override void play()
         {
+            Random rnd = new Random();
             int[] score = new int[2];
             String taken = "";
             // 15 topics
@@ -127,6 +128,30 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             possibleAnswers[3, 8] = "meteorology";
             possibleAnswers[3, 9] = "true";
 
+            //Sengoku Period
+            possibleQuestions[4, 0] = "Katsuyori Takeda assured his clan's destruction with his defeat at _________.";
+            possibleQuestions[4, 1] = "_______ Kobayakawa betrayed Mitsunari Ishida at the Battle of Sekigahara.";
+            possibleQuestions[4, 2] = "The ___ clan hailed from Owari.";
+            possibleQuestions[4, 3] = "Motoyasu Matsudaira would later become Ieyasu ________.";
+            possibleQuestions[4, 4] = "Yukimura Sanada earned eternal fame with his valiant last stand during the _____ Campaign";
+            possibleQuestions[4, 5] = "Nobunaga Oda used a _____ attack to win at Okehazama against all odds.";
+            possibleQuestions[4, 6] = "The symbol of the ______ clan was the bellflower.";
+            possibleQuestions[4, 7] = "_________ Akechi betrayed Nobunaga Oda.";
+            possibleQuestions[4, 8] = "True or False: Kanetsugu Naoe's famous helmet had a symbol that meant love in Japanese.";
+            possibleQuestions[4, 9] = "Hideyoshi Hashiba faced off against Ieyasu Tokugawa at the Battles of ______ and Nagakute.";
+
+            //Sengoku Period Answers
+            possibleAnswers[4, 0] = "nagashino";
+            possibleAnswers[4, 1] = "hideaki";
+            possibleAnswers[4, 2] = "oda";
+            possibleAnswers[4, 3] = "tokugawa";
+            possibleAnswers[4, 4] = "osaka";
+            possibleAnswers[4, 5] = "night";
+            possibleAnswers[4, 6] = "akechi";
+            possibleAnswers[4, 7] = "mitsuhide";
+            possibleAnswers[4, 8] = "true";
+            possibleAnswers[4, 9] = "komaki";
+
             showTitle("Welcome to Jeopardy!");
 
             writeOut("Hello, and welcome to Jeopardy. Here, we will test your intelligence...");
@@ -137,7 +162,13 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             for(int b = 0; b < 5; b++)
                 {
                     taken = getInput();
+                    topics[b] = taken;
+                        for(int x = 0; x < 5; x++){
+                            questions[b, x] = possibleQuestions[getSlot(taken, possibleTopics), rnd.Next(9)];
+
+                        }
                     dumbResponse(taken);
+                    
                 }
             writeLine("This game can be played with 2 teams, or you can try and go at it alone and see how many points you can get!");
             writeOut("How do you want to play? [1] or [2]?");
@@ -177,6 +208,14 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     writeOut("I have a weird taste in games. These questions won't be easy.");
                 if(inpot == "the bachelor")
                     writeOut("If you finish this game quick enough you might not miss the Rose Ceremony!");
+            }
+        public int getSlot(String enter, String[] tops)
+            {
+                for(int z = 0; z < 15; z++)
+                    if(tops[z] == enter)
+                        return z;
+
+                else return 0;
             }
        
     }
