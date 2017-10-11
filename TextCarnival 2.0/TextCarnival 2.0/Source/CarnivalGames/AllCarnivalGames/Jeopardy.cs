@@ -30,6 +30,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             String[,] questions = new String[5, 5];
             //answers to corresponding answers
             String[,] answers = new String[5, 5];
+
             //Geography
             possibleQuestions[0, 0] = "The _______ Ocean lies west of Ecuador.";
             possibleQuestions[0, 1] = "_______ lies landlocked inside South Africa.";
@@ -43,6 +44,88 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             possibleQuestions[0, 9] = "_____ Bay lies directly near Tokyo.";
 
             //Geography Answers
+            possibleAnswers[0, 0] = "pacific";
+            possibleAnswers[0, 1] = "lesotho";
+            possibleAnswers[0, 2] = "sandwich";
+            possibleAnswers[0, 3] = "hispaniola";
+            possibleAnswers[0, 4] = "nile";
+            possibleAnswers[0, 5] = "russia";
+            possibleAnswers[0, 6] = "galapagos";
+            possibleAnswers[0, 7] = "somalia";
+            possibleAnswers[0, 8] = "yellow";
+            possibleAnswers[0, 9] = "tokyo";
+
+            //European History
+            possibleQuestions[1, 0] = "Napoleon's final battle was ________.";
+            possibleQuestions[1, 1] = "The _______ line was the major front at the start of WWII.";
+            possibleQuestions[1, 2] = "The assassination of ________ Franz Ferdinard is widely said to have started WWI.";
+            possibleQuestions[1, 3] = "Ireland was _______ during WWII.";
+            possibleQuestions[1, 4] = "The ________ landings is another name for D-Day.";
+            possibleQuestions[1, 5] = "The first Holy Roman Emperor was ____________.";
+            possibleQuestions[1, 6] = "The ________ church held great power during the Middle Ages.";
+            possibleQuestions[1, 7] = "_____ supremacy declared that the Pope was able to judge all and be judged in return by noone.";
+            possibleQuestions[1, 8] = "Attila the ___ was a famous barbarian.";
+            possibleQuestions[1, 9] = "______ Mussolini was dictator of Italy during WWII.";
+
+            //European History Answers
+            possibleAnswers[1, 0] = "waterloo";
+            possibleAnswers[1, 1] = "maginot";
+            possibleAnswers[1, 2] = "archduke";
+            possibleAnswers[1, 3] = "neutral";
+            possibleAnswers[1, 4] = "normandy";
+            possibleAnswers[1, 5] = "charlemagne";
+            possibleAnswers[1, 6] = "catholic";
+            possibleAnswers[1, 7] = "papal";
+            possibleAnswers[1, 8] = "hun";
+            possibleAnswers[1, 9] = "benito";
+
+            //Animals
+            possibleQuestions[2, 0] = "Felus Domesticus is the scientific name for the ___.";
+            possibleQuestions[2, 1] = "Canis Familiaris is the scientific name for the ___.";
+            possibleQuestions[2, 2] = "The only egg-laying mammal is the ________.";
+            possibleQuestions[2, 3] = "_______ is the scientific study of animals.";
+            possibleQuestions[2, 4] = "Vertebrates have a ____ bone.";
+            possibleQuestions[2, 5] = "True or False: Animals have prokaryotic cells.";
+            possibleQuestions[2, 6] = "Turtles hide in their _____ when frightened.";
+            possibleQuestions[2, 7] = "A zebroid is a genetic combination of a zebra and a _____.";
+            possibleQuestions[2, 8] = "_____ the Sheep was the first cloned mammal from an adult cell.";
+            possibleQuestions[2, 9] = "The Incas herded ______.";
+        
+            //Animals Answers
+            possibleAnswers[2, 0] = "cat";
+            possibleAnswers[2, 1] = "dog";
+            possibleAnswers[2, 2] = "platypus";
+            possibleAnswers[2, 3] = "zoology";
+            possibleAnswers[2, 4] = "back";
+            possibleAnswers[2, 5] = "false";
+            possibleAnswers[2, 6] = "shell";
+            possibleAnswers[2, 7] = "horse";
+            possibleAnswers[2, 8] = "dolly";
+            possibleAnswers[2, 9] = "llamas";
+
+            //Weather
+            possibleQuestions[3, 0] = "____________ is the transformation of water from a gas into a liquid.";
+            possibleQuestions[3, 1] = "Rain or snow is an example of _____________.";
+            possibleQuestions[3, 2] = "Humidity is the presence of _____ vapor in the atmosphere.";
+            possibleQuestions[3, 3] = "The seasons are caused by a ____ in Earth's axis.";
+            possibleQuestions[3, 4] = "Typhoons and hurricanes are regional names for a tropical _______.";
+            possibleQuestions[3, 5] = "A ________ is a severe snow storm.";
+            possibleQuestions[3, 6] = "A tidal wave is another name for a _______.";
+            possibleQuestions[3, 7] = "A rotating formation of air is called a _______.";
+            possibleQuestions[3, 8] = "The study of the weather is called ___________.";
+            possibleQuestions[3, 9] = "True or False: A waterspout is a tornado over a body of water.";
+        
+            //Weather Answers
+            possibleAnswers[3, 0] = "condensation";
+            possibleAnswers[3, 1] = "precipitation";
+            possibleAnswers[3, 2] = "water";
+            possibleAnswers[3, 3] = "tilt";
+            possibleAnswers[3, 4] = "cyclone";
+            possibleAnswers[3, 5] = "blizzard";
+            possibleAnswers[3, 6] = "tsunami";
+            possibleAnswers[3, 7] = "tornado";
+            possibleAnswers[3, 8] = "meteorology";
+            possibleAnswers[3, 9] = "true";
 
             showTitle("Welcome to Jeopardy!");
 
@@ -94,8 +177,6 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     writeOut("I have a weird taste in games. These questions won't be easy.");
                 if(inpot == "the bachelor")
                     writeOut("If you finish this game quick enough you might not miss the Rose Ceremony!");
-
-                else writeOut("Okay then.");
             }
        
     }
