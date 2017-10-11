@@ -18,19 +18,19 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
         {
             Random rnd = new Random();
             int[] score = new int[2];
-            String taken = "";
+            string taken = "";
             // 15 topics
-            String[] possibleTopics = new String[]{"geography", "european history", "animals", "weather", "sengoku period", "american history", "gossip girl", "random", "three kingdoms period", "musicians", "jake paul", "spanish words", "tv shows", "video games", "the bachelor"};
+            string[] possibleTopics = new string[]{"geography", "european history", "animals", "weather", "sengoku period", "american history", "gossip girl", "random", "three kingdoms period", "musicians", "jake paul", "spanish words", "tv shows", "video games", "the bachelor"};
             // 15 different topics, of 10 (possible) questions each
-            String[,] possibleQuestions = new String[15, 10];
+            string[,] possibleQuestions = new string[15, 10];
             // this array holds the answer to the corresponding questions
-            String[,] possibleAnswers = new String[15, 10];
+            string[,] possibleAnswers = new string[15, 10];
             // Chosen topics
-            String[] topics = new String[5];
+            string[] topics = new string[5];
             //chosen questions
-            String[,] questions = new String[5, 5];
-            //answers to corresponding answers
-            String[,] answers = new String[5, 5];
+            string[,] questions = new string[5, 5];
+            //answers to corresponding questions
+            string[,] answers = new string[5, 5];
 
             //Geography
             possibleQuestions[0, 0] = "The _______ Ocean lies west of Ecuador.";
@@ -164,19 +164,18 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                     taken = getInput();
                     topics[b] = taken;
                         for(int x = 0; x < 5; x++){
-                            questions[b, x] = possibleQuestions[getSlot(taken, possibleTopics), rnd.Next(9)];
+                            questions[b,x] = possibleQuestions[getSlot(taken, possibleTopics), rnd.Next(9)];
 
                         }
+
                     dumbResponse(taken);
                     
                 }
-            writeLine("This game can be played with 2 teams, or you can try and go at it alone and see how many points you can get!");
-            writeOut("How do you want to play? [1] or [2]?");
             
              
         }
 
-        public void dumbResponse(String inpot)
+        public void dumbResponse(string inpot)
             {
                 if(inpot == "geography")
                     writeOut("Geography? Really? Eh, lame choice, but whatever.");
@@ -209,7 +208,7 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 if(inpot == "the bachelor")
                     writeOut("If you finish this game quick enough you might not miss the Rose Ceremony!");
             }
-        public int getSlot(String enter, String[] tops)
+        public int getSlot(string enter, string[] tops)
             {
                 for(int z = 0; z < 15; z++)
                     if(tops[z] == enter)

@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\TextCarnival 2.0\\TextCarnival 2.0\\obj\\Debug\\TempPE"
+    "\\TextCarnival 2.0",
+    "\\TextCarnival 2.0\\TextCarnival 2.0",
+    "\\TextCarnival 2.0\\TextCarnival 2.0\\Source",
+    "\\TextCarnival 2.0\\TextCarnival 2.0\\Source\\CarnivalGames",
+    "\\TextCarnival 2.0\\TextCarnival 2.0\\Source\\CarnivalGames\\AllCarnivalGames"
   ],
+  "SelectedNode": "\\TextCarnival 2.0\\TextCarnival 2.0\\Source\\CarnivalGames\\AllCarnivalGames\\Jeopardy.cs",
   "PreviewInSolutionExplorer": false
 }
