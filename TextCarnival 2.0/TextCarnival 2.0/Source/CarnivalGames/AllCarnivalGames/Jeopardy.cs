@@ -17,6 +17,8 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
         public override void play()
         {
             Random rnd = new Random();
+            int rng = 0;
+            List<int> used = new List<int>();
             int[] score = new int[2];
             string taken = "";
             // 15 topics
@@ -163,8 +165,22 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
                 {
                     taken = getInput();
                     topics[b] = taken;
-                        for(int x = 0; x < 5; x++){
-                            questions[b,x] = possibleQuestions[getSlot(taken, possibleTopics), rnd.Next(9)];
+                        for(int x = 0; x < 5; x++)
+                        {
+                        
+
+                        rng = rnd.Next(9);
+
+                        while(used.Contains(rng)){ 
+                        rng = rnd.Next(9); 
+                        }
+                        
+                                                                              
+                        questions[b, x] = possibleQuestions[getSlot(taken, possibleTopics), rng];
+                        answers[b, x] = possibleAnswers[getSlot(taken, possibleTopics), rng];
+                        used.Add(rng);
+                        writeOut(questions[b, x]);
+                        writeOut(answers[b, x]);
 
                         }
 
@@ -210,11 +226,11 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
             }
         public int getSlot(string enter, string[] tops)
             {
-                for(int z = 0; z < 15; z++)
-                    if(tops[z] == enter)
-                        return z;
+            for (int z = 0; z < 15; z++)
+                if (tops[z] == enter)
+                    return z;
 
-                else return 0;
+            return 0;
             }
        
     }
