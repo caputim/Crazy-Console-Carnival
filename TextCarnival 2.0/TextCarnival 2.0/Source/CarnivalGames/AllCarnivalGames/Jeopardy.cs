@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 {
@@ -16,13 +17,18 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 
         public override void play()
         {
+            int theScore = 0;
+            int num = 0;
+            string[] halves = new string[2];
+            //says which numbers have been used
+            bool[,] use = new bool[5, 5];
             Random rnd = new Random();
             int rng = 0;
             List<int> used = new List<int>();
             int[] score = new int[2];
             string taken = "";
             // 15 topics
-            string[] possibleTopics = new string[]{"geography", "european history", "animals", "weather", "sengoku period", "american history", "gossip girl", "random", "three kingdoms period", "musicians", "jake paul", "spanish words", "tv shows", "video games", "the bachelor"};
+            string[] possibleTopics = new string[]{"geography", "europeanhist", "animals", "weather", "sengokuperiod", "americanhist", "gossipgirl", "random", "threekingdomsperiod", "musicians", "jakepaul", "spanishwords", "tvshows", "videogames", "thebachelor"};
             // 15 different topics, of 10 (possible) questions each
             string[,] possibleQuestions = new string[15, 10];
             // this array holds the answer to the corresponding questions
@@ -156,72 +162,126 @@ namespace TextCarnivalV2.Source.CarnivalGames.AllCarnivalGames
 
             showTitle("Welcome to Jeopardy!");
 
-            writeOut("Hello, and welcome to Jeopardy. Here, we will test your intelligence...");
+            writeLine("Hello, and welcome to Jeopardy. Here, we will test your intelligence...");
             wait(1);
-            writeOut("Or rather, just your ability to know random stuff.");
+            writeLine("Or rather, just your ability to know random stuff.");
             wait(1);
-            writeOut("Pick 5 topics from the list for your game:\nGeography\nEuropean History\nAnimals\nWeather\nSengoku Period\nAmerican History\nGossip Girl\nRandom\nThree Kingdoms Period\nMusicians\nJake Paul\nSpanish Words\nTV Shows\nVideo Games\nThe Bachelor");
+            writeLine("Pick 5 topics from the list for your game:\nGeography\nEuropeanHist\nAnimals\nWeather\nSengokuPeriod\nAmericanHist\nGossipGirl\nRandom\nThreeKingdomsPeriod\nMusicians\nJakePaul\nSpanishWords\nTVShows\nVideoGames\nTheBachelor");
             for(int b = 0; b < 5; b++)
                 {
-                    taken = getInput();
-                    topics[b] = taken;
+                taken = getInput();
+                topics[b] = taken;
                         for(int x = 0; x < 5; x++)
                         {
-                        
+                            rng = rnd.Next(10);
 
-                        rng = rnd.Next(9);
+                            while(used.Contains(rng)){ 
+                            rng = rnd.Next(10); 
+                            }
+                                                        
+                            questions[b, x] = possibleQuestions[getSlot(taken, possibleTopics), rng];
+                            answers[b, x] = possibleAnswers[getSlot(taken, possibleTopics), rng];
+                            used.Add(rng);
+                            //will show the questions and answers as theyre selected, uncomment to debug
+                            //writeLine(questions[b, x]);
+                            //writeLine(answers[b, x]);
+                            use[b, x] = true;
 
-                        while(used.Contains(rng)){ 
-                        rng = rnd.Next(9); 
                         }
-                        
-                                                                              
-                        questions[b, x] = possibleQuestions[getSlot(taken, possibleTopics), rng];
-                        answers[b, x] = possibleAnswers[getSlot(taken, possibleTopics), rng];
-                        used.Add(rng);
-                        writeOut(questions[b, x]);
-                        writeOut(answers[b, x]);
 
-                        }
+                used.Clear();
+                dumbResponse(taken);
 
-                    dumbResponse(taken);
                     
                 }
-            
-             
-        }
+            clear();
+            writeLine("This game can be played alone, in a race to rack up points, or it can be played by 2 teams, to see who can get the most points. Which will it be?");
+            String respuesta = getOption("1", "2");
+            if (respuesta == "1")
+            {
+                for (int e = 0; e < 25; e++)
+                {
+                    showBoard(use, topics);
+                    writeLine("To pick a question, say the topic, followed by one space, and then the points: \"geography 100\".");
+                    taken = getInput();
+                    clear();
+                    halves = taken.Split(' ');
+                    writeLine(halves[0]);
+                    writeLine(halves[1]);
+                    theScore = Convert.ToInt32(halves[1]);
+                    //takes the second number, converts to Int, divides it to 100 to be single digit, then subtracts by 1 since arrays start with 0
+                    num = ((Convert.ToInt32(halves[1])) / 100) - 1;
+                    use[getSlot(halves[0], topics), num] = false;
+                    writeLine(questions[getSlot(halves[0], topics), num]);
+                    taken = getInput();
+                    if (taken == answers[getSlot(halves[0], topics), num])
+                    {
+                        score[0] += theScore;
+                        writeLine("Correct! Your total score is currently: " + score[0]);
+                    }
+                    else
+                    {
+                        score[0] -= theScore;
+                        writeLine("Incorrect. Your total score is currently: " + score[0]);
+                    }
+                    writeLine("Say yes when you're ready to continue.");
+                    taken = getInput();
 
+                }
+                writeLine("Thanks for playing. You finished with: " + score[0]);
+            }
+                
+        }
+        public void showBoard(bool[,] beenUsed, String[] pickedTopics)
+        {
+            int kept = 0;
+            clear();
+            for (int i = 0; i < 5; i++)
+                write(pickedTopics[i] + "     ");
+            for (int a = 0; a < 5; a++)
+            {
+                writeLine("");
+                for (int c = 0; c < 5; c++)
+                {
+                    kept = a + 1;
+                    if (beenUsed[c, a] == true)
+                        write(kept * 100 + "              ");
+                    else write("XXX              ");
+                }
+            }
+            writeLine("");
+        }
         public void dumbResponse(string inpot)
             {
                 if(inpot == "geography")
                     writeOut("Geography? Really? Eh, lame choice, but whatever.");
-                if(inpot == "european history")
+                if(inpot == "europeanhist")
                     writeOut("Very good choice. I'd give you some Euros if I wasn't broke.");
                 if(inpot == "animals")
                     writeOut("Animals are the greatest! Good choice!");
                 if(inpot == "weather")
                     writeOut("If you know what clouds and rain are, you'll be fine with these questions.");
-                if(inpot == "sengoku period")
+                if(inpot == "sengokuperiod")
                     writeOut("Questions the Three Unifiers would be proud of.");
-                if(inpot == "american history")
+                if(inpot == "americanhist")
                     writeOut("The shot heard round the world!");
-                if(inpot == "gossip girl")
+                if(inpot == "gossipgirl")
                     writeOut("I see someone has good tastes in TV.");
                 if(inpot == "random")
                     writeOut("Some of these are hard, some of these are easy. Best of luck either way.");
-                if(inpot == "three kingdoms period")
+                if(inpot == "threekingdomsperiod")
                     writeOut("If you don't know what Wei, Wu, or Shu is, you already lost these questions.");
                 if(inpot == "musicians")
                     writeOut("Hopefully you like alternative, electronic, and pop.");
-                if(inpot == "jake paul")
+                if(inpot == "jakepaul")
                     writeOut("Only the greatest Jake Paulers will answer these questions right.");
-                if(inpot == "spanish words")
+                if(inpot == "spanishwords")
                     writeOut("Ay que bien!");
-                if(inpot == "tv shows")
+                if(inpot == "tvshows")
                     writeOut("Dedicated to all my favorite shows! Hopefully your tastes are just as good as mine.");
-                if(inpot == "video games")
+                if(inpot == "videogames")
                     writeOut("I have a weird taste in games. These questions won't be easy.");
-                if(inpot == "the bachelor")
+                if(inpot == "thebachelor")
                     writeOut("If you finish this game quick enough you might not miss the Rose Ceremony!");
             }
         public int getSlot(string enter, string[] tops)
